@@ -1,6 +1,8 @@
-#![allow(dead_code, unused_variables)]
+use c_simple_types::{on_off, print_distance, print_array, print_difference, ding};
 
-fn main() {
+//tengo las funciones en lib, pero el codigo principal (main) esta aca
+
+pub fn main() {
     let coords: (f32, f32) = (6.3, 15.0);
 
     print_difference( coords.0 , coords.1);
@@ -14,32 +16,6 @@ fn main() {
     ding(series[6]);
 
     let mess = ([3, 2], 3.14, [(false, -3), (true, -100)], 5, "candy");
-
-}
-
-fn print_difference(x: f32, y: f32) {
-    println!("Difference between {} and {} is {}", x, y, (x - y).abs());
-}
-
-fn print_array(a: [f32; 2]) {
-    println!("The coordinates are ({}, {})", a[0], a[1]);
-}
-
-fn ding(x: i32) {
-    if x == 13 {
-        println!("Ding, you found 13!");
-    }
-}
-
-fn on_off(val: bool) {
-    if val {
-        println!("Lights are on!");
-    }
-}
-
-fn print_distance(z: (f32, f32)) {
-    
-    println!(
-        "Distance to the origin is {}",
-        ( z.0.powf(2.0) + z.1.powf(2.0) ).sqrt());
+    //array[tuple.0]
+    on_off(mess.2[1].0); // el tuple indexing se usa afuera del array, 2 es la posicion del elemento en mess(tupla), 1 es la posicion del , 0 es la posicion del array
 }
